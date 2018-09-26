@@ -3,22 +3,13 @@ import csv
 import os
 
 # Files that need to be read
-files = ['dataset/datalog.csv', 'dataset/dept_resources.csv', 'employee_details.csv', 'office_locations.csv']
+files = ['dataset/datalog.csv', 'dataset/dept_resources.csv', 'dataset/employee_details.csv', 'dataset/office_locations.csv']
 
-## First file as an example
-## Reference for reading CVS's
-## https://docs.python.org/3/library/csv.html
+# Read this tutorial
+## https://www.datacamp.com/community/tutorials/pandas-read-csv
+data = pd.read_csv(files[0])
+employee = pd.read_csv(files[2])
+department = pd.read_csv(files[1])
+office_location = pd.read_csv(files[3])
 
-# This reading from the datalog.csv
-with open(files[0], newline='') as file:
-    data = csv.reader(file, delimiter=',')
-    for item in data:
-        print(item)
-        # From here you will want to store the item somewhere
-
-# You fix this one
-# This reading from the employee_details.csv
-with open(files[2], newline='') as file:
-    data = csv.reader(file, delimiter=',')
-    # for item in data:
-
+print(data)
