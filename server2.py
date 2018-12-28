@@ -25,18 +25,23 @@ class Server():
 		while True:
 			#client connection established
 			client, addr = serversocket.accept()
+			data = client.recv(4096)
 			print 'Got connection from', addr
 
-	def get_request():
 
-		foo
+	def send(self, message):
+		# send a thank you message to client
+		if data:
+			client.send("Thank you for connecting")
 
 
+	create()
+	send()
 
 	client = Server()
 
-	# send a thank you message to client
-	client.send('Thank you for connecting')
+	
+	client.send()
 
 	#close connection with client
 	client.close()
