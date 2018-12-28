@@ -4,17 +4,22 @@ import socket
 
 class Server():
 
-	def create():
-		#create socket object
-		serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		print "Socket successfully created"
+	def __init__(self):
+
 		#reserve a port 
-		port = 8080
+		self.port = 8080
+		#create socket object
+		self.serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+	def create():
+		
+		print "Socket successfully created"
+		
 		#bind to the port
-		serversocket.bind(('127.0.0.1', 8080))
+		self.serversocket.bind(('127.0.0.1', 8080))
 		print "socket binded to %s " %8080
 		#put the socket into listening mode
-		serversocket.listen(8080)
+		self.serversocket.listen(8080)
 		print "listening on socket"
 		#a forever loop until we interrupt it or an error occurs
 		while True:
@@ -22,9 +27,13 @@ class Server():
 			client, addr = serversocket.accept()
 			print 'Got connection from', addr
 
+	def get_request():
+
+		foo
 
 
 
+	client = Server()
 
 	# send a thank you message to client
 	client.send('Thank you for connecting')
