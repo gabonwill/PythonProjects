@@ -20,7 +20,7 @@ class Client():
 			print "socket failed with an error"
 
 	
-	def printRecieved(self):
+	def printReceieved(self):
 		print self.socket.recv(4096)
 		print "the socket has successfully connected"
 
@@ -28,8 +28,8 @@ class Client():
 	def sendfunction(self):
 
 		try:
-			self.socket.sendall("GET / HTTP/1.1\r\n")
-			self.socket.sendall("GET / HTTP/1.1\r\n\r\n")
+			self.socket.send("GET / HTTP/1.1\r\n")
+			self.socket.send("GET / HTTP/1.1\r\n\r\n")
 		except TypeError:
 			print "TypeError"
 						
@@ -37,8 +37,9 @@ class Client():
 
 client = Client()
 client.connect()
-client.printRecieved()
 client.sendfunction()
+client.printReceieved()
+
 
 #try:
 	

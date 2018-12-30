@@ -4,17 +4,17 @@ import socket
 
 class Server():
 
-	def __init__(self):
 
+	def __init__(self):
 		#reserve a port 
 		self.port = 8080
 		#create socket object
 		self.serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-	def create():
+
+	def create(self):
 		
 		print "Socket successfully created"
-		
 		#bind to the port
 		self.serversocket.bind(('127.0.0.1', 8080))
 		print "socket binded to %s " %8080
@@ -23,25 +23,27 @@ class Server():
 		print "listening on socket"
 		#a forever loop until we interrupt it or an error occurs
 		while True:
-			#client connection established
-			client, addr = serversocket.accept()
-			data = client.recv(4096)
-			print 'Got connection from', addr
+			try:
+				#client connection established
+				client, addr = self.serversocket.accept()
+				data = client.recv(4096)
+				print 'Got connection from', addr
+			
+				if data:
+					client.send("Thank you for connecting")
+			except KeyboardInterrupt:
+				client.send("Thank you for connecting")
+				break
 
+			client.close()
 
-	def send(self, message):
-		# send a thank you message to client
-		if data:
-			client.send("Thank you for connecting")
+server = Server()
+server.create()
 
-
-	create()
-	send()
-
-	client = Server()
-
-	
-	client.send()
 
 	#close connection with client
-	client.close()
+	#listen for ctrl c when you get a ctrl c you close
+	#client.close()
+	#How to store data
+	#How to receive the data 
+	#send data back to the client
