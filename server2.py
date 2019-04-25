@@ -21,7 +21,7 @@ class Server():
 
         print "Socket successfully created"
         # bind to the port
-        self.serversocket.bind(('127.0.0.1', 53))
+        self.serversocket.bind(('10.133.1.8', 53))
         print "socket binded to %s " % 53
         # put the socket into listening mode
         self.serversocket.listen(53)
